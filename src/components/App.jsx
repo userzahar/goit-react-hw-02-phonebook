@@ -16,10 +16,14 @@ export class App extends Component {
   }
 
   createContacts = (data) => {
-    this.setState(() => {
-      console.log(this.state.contacts)
-      return { contacts: [{ id: nanoid(), name: data.name, number: data.number }, ...this.state.contacts] }
-    })
+    if (this.state.contacts.find(contact => contact.name === data.name)) {
+      alert(`${data.name} is alredy in contacts`)
+    } else {
+      this.setState(() => {
+        return { contacts: [{ id: nanoid(), name: data.name, number: data.number }, ...this.state.contacts] }
+      })
+    }
+
   }
   createFilterData = data => {
     this.setState(data)
