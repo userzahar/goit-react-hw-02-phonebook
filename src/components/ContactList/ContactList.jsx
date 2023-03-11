@@ -4,14 +4,17 @@ const { Component } = require("react");
 
 export class ContactList extends Component {
 
-    DataLI = () => {
-        return
-    }
+    // deleteItem = (data) => {
+    //     console.log('👛', data)
+    //     this.props.contacts.filter(el => {
+    //         el.name.toLowerCase().indexOf(data.name.toLowerCase()) === -1;
+    //     })
+    //     console.log("🎇", this.props.contacts)
+    // }
     render() {
-        console.log("✨ string", this.props.contacts)
         return <>
             <ul>
-                <LI contactsList={this.props.contacts} filter={this.props.filter} />
+                <LI contactsList={this.props.contacts} filter={this.props.filter} deleteItem={this.deleteItem} />
             </ul>
         </>
     }
