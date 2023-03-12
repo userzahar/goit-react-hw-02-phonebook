@@ -1,3 +1,4 @@
+import { Button } from "components/Button/Button";
 import { LI } from "./ListItem";
 
 const { Component } = require("react");
@@ -13,12 +14,16 @@ export class ContactList extends Component {
       return name.toLowerCase().indexOf(data.toLowerCase()) > -1;
   })
     }
-
+    
     render() {
+        
+        console.log("🚀 ~ this.props:", this.props.delete)
         const {filter} = this.props;
         return <ul>
                 {this.filteredContacts(filter).map((contact) => {
-                    return <LI key={contact.id} contact={contact} />
+                    return <LI key={contact.id} contact={contact}>
+                            <Button text="Delete" clickHeandler={()=>this.props.delete(contact.id)}/>
+                        </LI>
                 })}
             </ul>
     }

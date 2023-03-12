@@ -28,13 +28,22 @@ export class App extends Component {
   createFilterData = data => {
     this.setState(data);
   }
+
+  handleDelete = (id) => {
+    this.setState((prevState) => {
+            return {
+                contacts: prevState.contacts.filter(contact => contact.id !== id)
+            }
+        })
+  }
+
   render() {
     return <>
       <h1>Phonebook</h1>
       <Form createContacts={this.createContacts} />
       <h2>Contacts</h2>
       <Filter filterData={this.createFilterData} />
-      <ContactList contacts={this.state.contacts} filter={this.state.filter} />
+      <ContactList contacts={this.state.contacts} filter={this.state.filter} delete={this.handleDelete} />
     </>
   }
 }
