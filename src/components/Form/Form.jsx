@@ -10,7 +10,6 @@ export class Form extends Component {
     inputId = nanoid();
     inputIdNew = nanoid();
     handleChange = ({ target }) => {
-        // console.log("🧧", target.value)
         this.setState({ [target.name]: target.value })
     }
     handleSubmit = (e) => {

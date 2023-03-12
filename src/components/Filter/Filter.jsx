@@ -1,9 +1,7 @@
 const { Component } = require("react");
 
 export class Filter extends Component {
-    state = {
-        filter: ''
-    }
+
     handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value })
         this.props.filterData({ filter: target.value });

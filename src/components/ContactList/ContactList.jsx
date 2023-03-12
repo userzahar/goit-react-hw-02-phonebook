@@ -4,18 +4,22 @@ const { Component } = require("react");
 
 export class ContactList extends Component {
 
-    // deleteItem = (data) => {
-    //     console.log('👛', data)
-    //     this.props.contacts.filter(el => {
-    //         el.name.toLowerCase().indexOf(data.name.toLowerCase()) === -1;
-    //     })
-    //     console.log("🎇", this.props.contacts)
-    // }
+    filteredContacts(data) {
+        const{contacts} = this.props
+        if (!data.length) {
+            return contacts;
+        }
+        return contacts.filter(({name}) => {
+      return name.toLowerCase().indexOf(data.toLowerCase()) > -1;
+  })
+    }
+
     render() {
-        return <>
-            <ul>
-                <LI contactsList={this.props.contacts} filter={this.props.filter} deleteItem={this.deleteItem} />
+        const {filter} = this.props;
+        return <ul>
+                {this.filteredContacts(filter).map((contact) => {
+                    return <LI key={contact.id} contact={contact} />
+                })}
             </ul>
-        </>
     }
 }

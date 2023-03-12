@@ -26,9 +26,8 @@ export class App extends Component {
 
   }
   createFilterData = data => {
-    this.setState(data)
+    this.setState(data);
   }
-
   render() {
     return <>
       <h1>Phonebook</h1>
