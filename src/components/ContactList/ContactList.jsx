@@ -1,6 +1,6 @@
 import { Button } from "components/Button/Button";
 import { LI } from "./ListItem";
-
+import { ListStyled } from "./StyledContactList";
 const { Component } = require("react");
 
 export class ContactList extends Component {
@@ -18,12 +18,12 @@ export class ContactList extends Component {
     render() {
 
         const {filter} = this.props;
-        return <ul>
+        return <ListStyled>
                 {this.filteredContacts(filter).map((contact) => {
                     return <LI key={contact.id} contact={contact}>
                             <Button text="Delete" clickHeandler={()=>this.props.delete(contact.id)}/>
                         </LI>
                 })}
-            </ul>
+            </ListStyled>
     }
 }

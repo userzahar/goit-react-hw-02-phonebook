@@ -1,3 +1,6 @@
+import { InputStyled } from "components/Form/StyledInput";
+import { LabelStyled } from "./FilterStyled";
+
 const { Component } = require("react");
 
 export class Filter extends Component {
@@ -8,7 +11,9 @@ export class Filter extends Component {
     }
 
     render() {
-        return <label htmlFor=""><p>Find Contacts By Name</p>
-            <input type="text" name="filter" onChange={this.handleChange} /></label>
+        return <>
+            <LabelStyled htmlFor="filter">Find Contacts By Name </LabelStyled>
+            <InputStyled type="text" id="filter" name="filter" onChange={this.handleChange} />
+        </>
     }
 }

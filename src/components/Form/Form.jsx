@@ -1,4 +1,7 @@
+import { Button } from "components/Button/Button";
+import { LabelStyled } from "components/Filter/FilterStyled";
 import { nanoid } from "nanoid";
+import { InputStyled } from "./StyledInput";
 
 const { Component } = require("react");
 
@@ -28,8 +31,8 @@ export class Form extends Component {
     }
     render() {
         return <form onSubmit={this.handleSubmit}>
-            <label htmlFor={this.inputId}>Name</label>
-            <input
+            <LabelStyled htmlFor={this.inputId}>Name</LabelStyled>
+            <InputStyled
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -40,8 +43,8 @@ export class Form extends Component {
                 id={this.inputId}
             />
 
-            <label htmlFor={this.inputIdNew}>Number</label>
-            <input
+            <LabelStyled htmlFor={this.inputIdNew}>Number</LabelStyled>
+            <InputStyled
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -51,7 +54,7 @@ export class Form extends Component {
                 value={this.state.number}
                 id={this.inputIdNew}
             />
-            <button type='submit'>Add Contact</button>
+            <Button text="Add Contact" />
         </form>
 
     }

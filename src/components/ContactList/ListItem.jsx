@@ -1,13 +1,13 @@
-const { Component } = require("react");
+import { ItemStyled } from "./ListItemStyled";
 
 export function LI({ contact, children}) {
     const {name, number } = contact;
-    return <li>
+    return <ItemStyled>
         <p>{name}</p>
         <span>:</span>
         <p>{number}</p>
         {children}
-    </li>
+    </ItemStyled>
 }
 
 

@@ -1,4 +1,5 @@
+import { ButtonStyled } from "./ButtonStyled"
 
 export function Button({ text, clickHeandler }) {
-    return <button onClick={clickHeandler}>{text}</button>
+    return <ButtonStyled onClick={clickHeandler}>{text}</ButtonStyled>
 }
