@@ -16,8 +16,7 @@ export class ContactList extends Component {
     }
     
     render() {
-        
-        console.log("🚀 ~ this.props:", this.props.delete)
+
         const {filter} = this.props;
         return <ul>
                 {this.filteredContacts(filter).map((contact) => {
