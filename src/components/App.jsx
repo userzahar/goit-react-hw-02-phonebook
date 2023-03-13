@@ -53,7 +53,6 @@ export class App extends Component {
   }
 
   render() {
-    console.log("🧿",this.handleDelete)
     return <>
       <h1>Phonebook</h1>
       <Form createContacts={this.createContacts} />
