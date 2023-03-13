@@ -2,7 +2,6 @@ import { Button } from "components/Button/Button";
 import { LabelStyled } from "components/Filter/FilterStyled";
 import { nanoid } from "nanoid";
 import { InputStyled } from "./StyledInput";
-import PropTypes from "prop-types";
 const { Component } = require("react");
 
 export class Form extends Component {
