@@ -53,13 +53,14 @@ export class App extends Component {
   }
 
   render() {
+    console.log("🧿",this.handleDelete)
     return <>
       <h1>Phonebook</h1>
       <Form createContacts={this.createContacts} />
       <h2>Contacts</h2>
       <Filter filterData={this.createFilterData} />
       
-      <ContactList contacts={this.state.contacts} filter={this.state.filter} delete={this.handleDelete} filterList={()=>this.filteredContacts()}  />
+      <ContactList deleteItem={this.handleDelete} filterList={()=>this.filteredContacts()}  />
     </>
   }
 }
