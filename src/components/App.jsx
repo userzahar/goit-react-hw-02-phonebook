@@ -14,6 +14,20 @@ export class App extends Component {
     ],
     filter: '',
   }
+      filteredContacts() {
+        const { contacts,filter } = this.state
+        if (!filter.length) {
+            return contacts;
+        }
+        return contacts.filter(({name}) => {
+      return name.toLowerCase().indexOf(filter.toLowerCase()) > -1;
+        })
+  }
+  
+  handleChange = ({ target }) => {
+        this.setState({ [target.name]: target.value })
+        this.props.filterData({ filter: target.value });
+    }
 
   createContacts = (data) => {
     if (this.state.contacts.find(contact => contact.name === data.name)) {
@@ -44,7 +58,8 @@ export class App extends Component {
       <Form createContacts={this.createContacts} />
       <h2>Contacts</h2>
       <Filter filterData={this.createFilterData} />
-      <ContactList contacts={this.state.contacts} filter={this.state.filter} delete={this.handleDelete} />
+      
+      <ContactList contacts={this.state.contacts} filter={this.state.filter} delete={this.handleDelete} filterList={()=>this.filteredContacts()}  />
     </>
   }
 }
