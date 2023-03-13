@@ -3,12 +3,8 @@ import { Form } from "./Form/Form";
 import { nanoid } from 'nanoid';
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
-import PropTypes from "prop-types";
+
 export class App extends Component {
-  static propTypes = {
-    filter: PropTypes.string,
-    contacts: PropTypes.arrayOf(PropTypes.object)
-  }
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -22,6 +18,7 @@ export class App extends Component {
   createContacts = (data) => {
     if (this.state.contacts.find(contact => contact.name === data.name)) {
       alert(`${data.name} is alredy in contacts`)
+      return false;
     } else {
       this.setState(() => {
         return { contacts: [{ id: nanoid(), name: data.name, number: data.number }, ...this.state.contacts] }

@@ -6,10 +6,6 @@ import PropTypes from "prop-types";
 const { Component } = require("react");
 
 export class Form extends Component {
-    static propTypes = {
-        name: PropTypes.string,
-        number: PropTypes.number
-    }
     state = {
         name: '',
         number: ''
@@ -21,11 +17,13 @@ export class Form extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.createContacts({
+        let cteateContact = this.props.createContacts({
             name: this.state.name,
             number: this.state.number
         })
-        this.reset();
+        if (cteateContact === undefined) {
+            this.reset();
+        }
     }
     reset = () => {
         this.setState({
