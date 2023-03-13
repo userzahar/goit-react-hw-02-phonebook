@@ -26,7 +26,7 @@ export class App extends Component {
   
   handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value })
-        this.props.filterData({ filter: target.value });
+        this.createFilterData({ filter: target.value });
     }
 
   createContacts = (data) => {
@@ -57,7 +57,7 @@ export class App extends Component {
       <h1>Phonebook</h1>
       <Form createContacts={this.createContacts} />
       <h2>Contacts</h2>
-      <Filter filterData={this.createFilterData} />
+      <Filter filterData={this.createFilterData} handleChange={this.handleChange} />
       
       <ContactList deleteItem={this.handleDelete} filterList={()=>this.filteredContacts()}  />
     </>
